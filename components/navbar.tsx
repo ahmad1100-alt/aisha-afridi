@@ -22,14 +22,6 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="#hero" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors">
-            <Image
-              src="/icon.svg"
-              alt="Aisha Afridi logo"
-              width={40}
-              height={40}
-              className="rounded-lg"
-              priority
-            />
             <span className="font-serif text-2xl font-medium">Aisha Afridi</span>
           </Link>
 

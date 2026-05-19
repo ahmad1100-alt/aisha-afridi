@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
-const GALLERY_IMAGE_COUNT = 1150;
-const INITIAL_VISIBLE_COUNT = 36;
-const LOAD_MORE_COUNT = 36;
+const GALLERY_IMAGE_COUNT = 72;
+const INITIAL_VISIBLE_COUNT = 24;
+const LOAD_MORE_COUNT = 24;
 
 interface GalleryItem {
   id: number;
@@ -17,7 +17,7 @@ interface GalleryItem {
 }
 
 const getGalleryImage = (index: number) =>
-  `/portfolio-gallery/aisha-${String(index + 1).padStart(4, '0')}.webp`;
+  `/portfolio-gallery/aisha-${String(index + 1).padStart(3, '0')}.webp`;
 
 export default function Gallery() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
@@ -65,7 +65,7 @@ export default function Gallery() {
             Gallery
           </h2>
           <p className="font-sans text-xl text-white/75 max-w-2xl">
-            A curated visual selection for portfolio review, built from the provided image folder.
+            A curated visual selection from the latest provided images for portfolio review.
           </p>
         </div>
 
