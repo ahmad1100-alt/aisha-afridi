@@ -77,7 +77,7 @@ export default function Navbar() {
               ))}
               <a
                 href="#contact"
-                className="btn-gold text-xs mx-4 text-center"
+                className="btn-gold text-sm w-full text-center"
                 onClick={() => setIsOpen(false)}
               >
                 Booking Inquiry
@@ -86,12 +86,7 @@ export default function Navbar() {
           </div>
         )}
       </div>
-      <a
-        href="#contact"
-        className="md:hidden fixed bottom-4 left-4 right-4 z-50 btn-gold text-center text-sm font-semibold shadow-2xl"
-      >
-        Booking Inquiry
-      </a>
+      {/* Fixed mobile booking button removed - hamburger contains the CTA now */}
     </nav>
   );
 }
