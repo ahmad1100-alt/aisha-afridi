@@ -1,0 +1,8 @@
+<svg width="280" height="64" viewBox="0 0 280 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="#10100E"/>
+  <rect x="8" y="8" width="48" height="48" rx="11" stroke="#C99A4B" stroke-width="2"/>
+  <text x="32" y="40" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="700" fill="#F4F2EC">AA</text>
+  <path d="M82 42H72L85.8 12H94.7L108.5 42H98.5L96.1 36H84.4L82 42ZM87.1 28.9H93.4L90.3 20.9L87.1 28.9Z" fill="#10100E"/>
+  <text x="116" y="27" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700" fill="#10100E">Aisha Afridi</text>
+  <text x="116" y="46" font-family="Inter, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="3" fill="#C99A4B">OFFICIAL PORTFOLIO</text>
+</svg>
