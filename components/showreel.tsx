@@ -10,7 +10,7 @@ export default function Showreel() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 md:grid-cols-5 md:px-8">
         <div className="md:col-span-2">
           <span className="mb-4 inline-block text-sm font-sans uppercase tracking-widest text-primary">
-            Reel & Social
+            Showreel & Social Presence
           </span>
           <h2 className="mb-6 font-serif text-5xl text-foreground md:text-6xl">
             Screen Updates, BTS, and Lifestyle Content
@@ -60,7 +60,7 @@ export default function Showreel() {
             <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
               <Play className="ml-1 h-6 w-6" fill="currentColor" />
             </span>
-            <span className="font-sans text-lg font-semibold">Open official video updates</span>
+            <span className="font-sans text-lg font-semibold">View Official YouTube</span>
           </span>
         </a>
       </div>

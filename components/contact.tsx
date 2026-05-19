@@ -1,8 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Mail, Instagram, Youtube, Send } from 'lucide-react';
-import { bookingEmail, instagramUrl, youtubeUrl } from '@/lib/aisha-profile';
+import { Instagram, Mail, Send, Youtube } from 'lucide-react';
+import { instagramUrl, managementContactLabel, youtubeUrl } from '@/lib/aisha-profile';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -14,6 +14,7 @@ export default function Contact() {
     message: '',
   });
   const [status, setStatus] = useState('');
+  const [isSending, setIsSending] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -22,22 +23,38 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSending(true);
+    setStatus('');
 
-    const subject = formData.subject || `${formData.inquiryType} inquiry for Aisha Afridi`;
-    const body = [
-      `Name: ${formData.name}`,
-      `Email: ${formData.email}`,
-      `Phone / WhatsApp: ${formData.phone || 'Not provided'}`,
-      `Inquiry Type: ${formData.inquiryType}`,
-      '',
-      formData.message,
-    ].join('\n');
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+      const result = await response.json();
 
-    const mailtoUrl = `mailto:${bookingEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailtoUrl;
-    setStatus('Opening your email app with the inquiry details ready to send.');
+      if (!response.ok) {
+        setStatus(result.message || 'Management email is not configured yet. Please use Instagram for urgent inquiries.');
+        return;
+      }
+
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        inquiryType: 'Acting / Casting',
+        subject: '',
+        message: '',
+      });
+      setStatus('Thank you. Your inquiry has been sent for review.');
+    } catch {
+      setStatus('The inquiry could not be sent right now. Please use Instagram for urgent inquiries.');
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -61,16 +78,15 @@ export default function Contact() {
                   Direct Contact
                 </p>
                 <div className="space-y-6">
-                  <a
-                    href={`mailto:${bookingEmail}`}
-                    className="flex items-start gap-5 p-6 bg-card border border-primary/15 rounded-lg hover:border-primary hover:shadow-lg transition-all duration-300 group"
+                  <div
+                    className="flex items-start gap-5 p-6 bg-card border border-primary/15 rounded-lg transition-all duration-300"
                   >
-                    <Mail className="text-primary w-6 h-6 flex-shrink-0 mt-1 group-hover:scale-110 transition-transform" />
+                    <Mail className="text-primary w-6 h-6 flex-shrink-0 mt-1" />
                     <div>
-                      <p className="font-sans font-semibold text-foreground mb-1">Email</p>
-                      <p className="font-sans text-base text-foreground break-all">{bookingEmail}</p>
+                      <p className="font-sans font-semibold text-foreground mb-1">Management Contact</p>
+                      <p className="font-sans text-base text-foreground">{managementContactLabel}</p>
                     </div>
-                  </a>
+                  </div>
 
                   <a
                     href={instagramUrl}
@@ -221,10 +237,11 @@ export default function Contact() {
               )}
               <button
                 type="submit"
+                disabled={isSending}
                 className="w-full btn-gold text-lg font-semibold py-5 flex items-center justify-center gap-2 hover:gap-3 transition-all"
               >
                 <Send size={20} />
-                Send Message
+                {isSending ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>

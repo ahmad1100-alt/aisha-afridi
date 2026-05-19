@@ -1,7 +1,6 @@
 'use client';
 
 import { Download, FileText } from 'lucide-react';
-import { bookingEmail } from '@/lib/aisha-profile';
 
 interface PressKit {
   id: number;
@@ -62,15 +61,14 @@ export default function PressKit() {
               <p className="font-sans text-base md:text-lg text-foreground leading-relaxed mb-8">
                 {kit.description}
               </p>
-              <button
-                type="button"
-                disabled
-                aria-label={`${kit.title} download coming soon`}
-                className="w-full btn-gold text-base font-semibold py-4 flex items-center justify-center gap-2 opacity-70 cursor-not-allowed"
+              <a
+                href="#contact"
+                aria-label={`${kit.title} available on request`}
+                className="w-full btn-gold text-base font-semibold py-4 flex items-center justify-center gap-2"
               >
                 <Download size={20} />
-                Coming Soon
-              </button>
+                Available on Request
+              </a>
             </div>
           ))}
         </div>
@@ -85,7 +83,7 @@ export default function PressKit() {
             Contact management for custom press materials, additional media assets, interviews, or collaboration details.
           </p>
           <a
-            href={`mailto:${bookingEmail}`}
+            href="#contact"
             className="btn-outline text-lg font-semibold py-4 px-8 inline-flex items-center gap-2"
             aria-label="Contact Aisha Afridi management for press materials"
           >

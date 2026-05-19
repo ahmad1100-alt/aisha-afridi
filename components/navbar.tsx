@@ -10,7 +10,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '#about', label: 'About' },
-    { href: '#showreel', label: 'Reel' },
+    { href: '#showreel', label: 'Showreel' },
     { href: '#work', label: 'Work' },
     { href: '#gallery', label: 'Gallery' },
     { href: '#contact', label: 'Contact' },
@@ -22,15 +22,14 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="#hero" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors">
-            <div className="relative h-10 w-10 overflow-hidden rounded-full">
-              <Image
-                src="/aisha-gallery-6.jpg"
-                alt="Aisha Afridi logo"
-                fill
-                className="object-cover"
-                priority
-              />
-            </div>
+            <Image
+              src="/icon.svg"
+              alt="Aisha Afridi logo"
+              width={40}
+              height={40}
+              className="rounded-lg"
+              priority
+            />
             <span className="font-serif text-2xl font-medium">Aisha Afridi</span>
           </Link>
 
@@ -49,7 +48,7 @@ export default function Navbar() {
               href="#contact"
               className="btn-gold text-xs"
             >
-              Bookings
+              Booking Inquiry
             </a>
           </div>
 
@@ -89,12 +88,18 @@ export default function Navbar() {
                 className="btn-gold text-xs mx-4 text-center"
                 onClick={() => setIsOpen(false)}
               >
-                Bookings
+                Booking Inquiry
               </a>
             </div>
           </div>
         )}
       </div>
+      <a
+        href="#contact"
+        className="md:hidden fixed bottom-4 left-4 right-4 z-50 btn-gold text-center text-sm font-semibold shadow-2xl"
+      >
+        Booking Inquiry
+      </a>
     </nav>
   );
 }

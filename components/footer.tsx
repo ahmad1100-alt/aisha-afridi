@@ -1,7 +1,7 @@
 'use client';
 
-import { Mail, Instagram, Youtube } from 'lucide-react';
-import { bookingEmail, instagramUrl, youtubeUrl } from '@/lib/aisha-profile';
+import { Instagram, Mail, Youtube } from 'lucide-react';
+import { instagramUrl, managementContactLabel, youtubeUrl } from '@/lib/aisha-profile';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -56,9 +56,7 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href={`mailto:${bookingEmail}`} className="font-sans text-sm text-muted hover:text-primary transition-colors">
-                  {bookingEmail}
-                </a>
+                <p className="font-sans text-sm text-muted">{managementContactLabel}</p>
               </li>
               <li>
                 <a href={instagramUrl} target="_blank" rel="noreferrer" className="font-sans text-sm text-muted hover:text-primary transition-colors">
@@ -99,10 +97,10 @@ export default function Footer() {
                 <Youtube size={18} />
               </a>
               <a
-                href={`mailto:${bookingEmail}`}
+                href="#contact"
                 className="w-10 h-10 bg-card border border-border rounded flex items-center justify-center text-primary hover:border-primary hover:bg-primary hover:text-background transition-all"
-                title="Email"
-                aria-label="Email Aisha Afridi management"
+                title="Contact"
+                aria-label="Contact Aisha Afridi management"
               >
                 <Mail size={18} />
               </a>

@@ -1,9 +1,9 @@
 export const instagramUrl = 'https://www.instagram.com/aishaafridi.official/';
 export const youtubeUrl = 'https://www.youtube.com/@AishaAfridi_vlogs';
-export const bookingEmail = 'booking@aishaafridi.com';
+export const managementContactLabel = 'Management contact available on request';
 
 export const bio =
-  'Aisha Afridi is a Pakistani actress and digital creator known for television drama work and screen-focused digital content. Her publicly listed work includes Guru, Shehzadi House, Baby Baji Ki Bahuwain, and Rasm e Wafa. Alongside acting, she shares behind-the-scenes and lifestyle content through her official social platforms.';
+  'Aisha Afridi is a Pakistani actress and digital creator known for television drama work and screen-focused digital content. Her publicly listed screen work includes projects such as Guru, Shehzadi House, Baby Baji Ki Bahuwain, and Rasm e Wafa. Alongside acting, she shares behind-the-scenes and lifestyle content through her official social platforms.';
 
 export const quickFacts = [
   { label: 'Profession', value: 'Actress, Digital Creator' },
@@ -21,6 +21,7 @@ export const workItems = [
     image: '/aisha-gallery-1.jpg',
     description:
       'Aisha Afridi made her television drama debut with Guru on Express Entertainment in 2023.',
+    source: 'Aspire Pakistan / public entertainment listings',
   },
   {
     title: 'Shehzadi House',
@@ -29,6 +30,7 @@ export const workItems = [
     image: '/aisha-gallery-2.jpg',
     description:
       'She appeared in Shehzadi House, a Green TV family drama presented by Multiverse Entertainment.',
+    source: 'Dailymotion listing / Green TV public listings',
   },
   {
     title: 'Baby Baji Ki Bahuwain',
@@ -37,6 +39,7 @@ export const workItems = [
     image: '/aisha-gallery-3.jpg',
     description:
       'Aisha Afridi was part of the ensemble cast of Baby Baji Ki Bahuwain, the sequel to Baby Baji.',
+    source: 'Daily Times / ARY public listing / official social',
   },
   {
     title: 'Rasm e Wafa',
@@ -45,6 +48,7 @@ export const workItems = [
     image: '/aisha-gallery-4.jpg',
     description:
       'Her listed television work includes Rasm e Wafa.',
+    source: 'WeGreen public entertainment listing',
   },
 ];
 

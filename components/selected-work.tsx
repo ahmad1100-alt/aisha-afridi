@@ -10,7 +10,7 @@ export default function SelectedWork() {
         <div className="mb-16 md:mb-20">
           <span className="inline-block text-sm font-sans tracking-widest uppercase text-primary mb-4">01</span>
           <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-foreground mb-6">
-            Verified Work
+            Selected Screen Work
           </h2>
           <p className="max-w-3xl font-sans text-lg leading-relaxed text-muted md:text-xl">
             A curated overview of Aisha&apos;s publicly listed television work and screen presence.
@@ -58,7 +58,7 @@ export default function SelectedWork() {
               Portfolio Note
             </p>
             <p className="font-sans text-lg leading-relaxed text-foreground">
-              The live portfolio keeps the focus on verified career notes and approved screen-ready material. Additional casting details can be shared privately on request.
+              The live portfolio keeps the focus on publicly listed career notes and approved screen-ready material. Additional casting details can be shared privately on request.
             </p>
           </div>
           <a href="#contact" className="btn-gold justify-self-start text-base font-semibold md:justify-self-end">

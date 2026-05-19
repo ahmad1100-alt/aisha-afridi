@@ -34,14 +34,14 @@ export default function Hero() {
             Aisha Afridi
           </h1>
           <p className="mb-8 max-w-2xl font-sans text-xl font-light leading-relaxed text-white/90 md:text-3xl">
-            Actress and digital creator for television dramas, BTS storytelling, fashion, lifestyle, and brand-led screen work.
+            Pakistani actress and digital creator with screen work across television drama, BTS storytelling, fashion, lifestyle, and brand-led visual content.
           </p>
 
           <div className="mb-10 flex flex-wrap gap-3 text-sm text-white/80">
-            <span className="border-l border-primary pl-3">Guru</span>
-            <span className="border-l border-primary pl-3">Shehzadi House</span>
-            <span className="border-l border-primary pl-3">Baby Baji Ki Bahuwain</span>
-            <span className="border-l border-primary pl-3">Rasm e Wafa</span>
+            <span className="border-l border-primary pl-3">Television Drama</span>
+            <span className="border-l border-primary pl-3">Digital Creator</span>
+            <span className="border-l border-primary pl-3">Brand Collaborations</span>
+            <span className="border-l border-primary pl-3">BTS Content</span>
           </div>
 
           <div className="flex flex-col gap-4 sm:flex-row">
@@ -50,6 +50,9 @@ export default function Hero() {
             </a>
             <a href="#contact" className="btn-glass text-base font-semibold md:text-lg">
               Booking Inquiry
+            </a>
+            <a href="#gallery" className="btn-glass text-base font-semibold md:text-lg">
+              View Gallery
             </a>
             <a
               href={instagramUrl}
