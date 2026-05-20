@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import { Instagram, Youtube } from 'lucide-react';
 import { instagramUrl, youtubeUrl } from '@/lib/aisha-profile';
@@ -13,7 +11,7 @@ export default function Hero() {
         fill
         className="object-cover object-[58%_26%] md:object-[65%_36%]"
         priority
-        quality={95}
+        quality={86}
         sizes="100vw"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/20 to-black/88 md:bg-gradient-to-r md:from-black/80 md:via-black/45 md:to-black/10" />

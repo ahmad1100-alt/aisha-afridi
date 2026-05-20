@@ -48,7 +48,7 @@ export default function Showreel() {
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
-          {visibleReels.map((reel, index) => (
+          {visibleReels.map((reel) => (
             <article
               key={reel.video}
               className="overflow-hidden rounded-lg border border-border bg-card shadow-[0_14px_36px_rgba(21,21,21,0.06)]"
@@ -57,8 +57,9 @@ export default function Showreel() {
                 <video
                   className="aspect-[9/16] h-full w-full object-cover"
                   controls
-                  preload="metadata"
+                  preload="none"
                   playsInline
+                  poster={reel.poster}
                 >
                   <source src={reel.video} type="video/mp4" />
                 </video>

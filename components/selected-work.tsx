@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import { workItems } from '@/lib/aisha-profile';
 
@@ -29,7 +27,7 @@ export default function SelectedWork() {
                   alt={work.title}
                   fill
                   className="object-contain transition-transform duration-500 group-hover:scale-105"
-                  quality={92}
+                  quality={84}
                   sizes="(min-width: 768px) 50vw, 100vw"
                 />
                 <div className="absolute left-4 top-4 bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground">

@@ -1,5 +1,3 @@
-'use client';
-
 import { Camera, Clapperboard, Sparkles } from 'lucide-react';
 import { bio, quickFacts } from '@/lib/aisha-profile';
 

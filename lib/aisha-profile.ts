@@ -8,7 +8,10 @@ export const bio =
 export const quickFacts = [
   { label: 'Profession', value: 'Actress, Digital Creator' },
   { label: 'Nationality', value: 'Pakistani' },
-  { label: 'Known For', value: 'Guru, Shehzadi House, Baby Baji Ki Bahuwain, Rasm e Wafa, Aye Dil Aazma Nahin' },
+  {
+    label: 'Known For',
+    value: 'Guru, Shehzadi House, Baby Baji Ki Bahuwain, Rasm e Wafa, Aye Dil Aazma Nahin',
+  },
   { label: 'Content', value: 'Acting, BTS, lifestyle, fashion, digital media' },
   { label: 'Available For', value: 'Acting projects, brand campaigns, media collaborations' },
 ];
@@ -33,7 +36,7 @@ export const workItems = [
     year: 'Latest Drama',
     image: '/work/rasm-e-wafa.jpg',
     description:
-      'Rasm e Wafa is among Aisha Afridi’s latest television screen work, with official promotional artwork from ARY Digital.',
+      'Rasm e Wafa is among Aisha Afridi\'s latest television screen work, with official promotional artwork from ARY Digital.',
     source: 'ARY Digital official artwork supplied by client',
   },
   {
@@ -85,48 +88,48 @@ export const reelItems = [
     title: 'Featured Reel 01',
     description: 'Official reel highlight from Aisha Afridi\'s recent social updates.',
     video: '/reels/reel-01.mp4',
-    poster: '/reels/poster-01.jpg',
+    poster: '/reels/reel-01-poster.jpg',
   },
   {
     title: 'Featured Reel 02',
     description: 'Short-form performance and lifestyle reel from Aisha\'s latest content set.',
     video: '/reels/reel-02.mp4',
-    poster: '/reels/poster-02.jpg',
+    poster: '/reels/reel-02-poster.jpg',
   },
   {
     title: 'Featured Reel 03',
     description: 'Official reel cut featuring camera-facing screen presence and styling moments.',
     video: '/reels/reel-03.mp4',
-    poster: '/reels/poster-03.jpg',
+    poster: '/reels/reel-03-poster.jpg',
   },
   {
     title: 'Featured Reel 04',
     description: 'Recent visual reel from Aisha Afridi\'s approved social media archive.',
     video: '/reels/reel-04.mp4',
-    poster: '/reels/poster-04.jpg',
+    poster: '/reels/reel-04-poster.jpg',
   },
   {
     title: 'Featured Reel 05',
     description: 'Performance-forward reel clip selected for the official portfolio.',
     video: '/reels/reel-05.mp4',
-    poster: '/reels/poster-05.jpg',
+    poster: '/reels/reel-05-poster.jpg',
   },
+  // {
+  //   title: 'Featured Reel 06',
+  //   description: 'Additional short-form reel showing recent approved digital content.',
+  //   video: '/reels/reel-06.mp4',
+  //   poster: '/reels/reel-06-poster.jpg',
+  // },
   {
     title: 'Featured Reel 06',
-    description: 'Additional short-form reel showing recent approved digital content.',
-    video: '/reels/reel-06.mp4',
-    poster: '/reels/poster-06.jpg',
-  },
-  {
-    title: 'Featured Reel 07',
-    description: 'Selected reel from Aisha Afridi\'s recent approved content, bringing together on-camera presence, styling, and short-form storytelling.',
+    description:
+      'Selected reel from Aisha Afridi\'s recent approved content, bringing together on-camera presence, styling, and short-form storytelling.',
     video: '/reels/reel-07.mp4',
-    poster: '/reels/poster-07.jpg',
+    poster: '/reels/reel-07-poster.jpg',
   },
-  {
-    title: 'Featured Reel 08',
-    description: 'Another recent reel from Aisha Afridi\'s approved content.',
-    video: '/reels/reel-08.mp4',
-    poster: '/reels/poster-08.jpg',
-  }
+  // {
+  //   title: 'Featured Reel 08',
+  //   description: 'Another recent reel from Aisha Afridi\'s approved content.',
+  //   video: '/reels/reel-08.mp4',
+  // },
 ];

@@ -1,5 +1,3 @@
-'use client';
-
 import { Instagram, Mail, Youtube } from 'lucide-react';
 import { instagramUrl, managementContactLabel, youtubeUrl } from '@/lib/aisha-profile';
 

@@ -1,5 +1,3 @@
-'use client';
-
 import { Camera, Clapperboard, ImageIcon, Radio, Shirt, Sparkles } from 'lucide-react';
 
 interface Collaboration {

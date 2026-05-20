@@ -1,12 +1,14 @@
+import dynamic from 'next/dynamic';
 import Navbar from '@/components/navbar';
 import Hero from '@/components/hero';
 import About from '@/components/about';
-import Showreel from '@/components/showreel';
 import SelectedWork from '@/components/selected-work';
-import Gallery from '@/components/gallery';
 import Collaborations from '@/components/collaborations';
-import Contact from '@/components/contact';
 import Footer from '@/components/footer';
+
+const Gallery = dynamic(() => import('@/components/gallery'));
+const Showreel = dynamic(() => import('@/components/showreel'));
+const Contact = dynamic(() => import('@/components/contact'));
 
 export default function Home() {
   return (
