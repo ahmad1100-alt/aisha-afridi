@@ -4,9 +4,13 @@ import Image from 'next/image';
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useMemo, useState } from 'react';
 
-const GALLERY_IMAGE_COUNT = 72;
+const GALLERY_IMAGE_COUNT = 117;
 const INITIAL_VISIBLE_COUNT = 24;
 const LOAD_MORE_COUNT = 24;
+const CATEGORIES = ['All', 'Portraits', 'Editorial', 'BTS', 'Traditional', 'Brand Shoots', 'Social'] as const;
+const CATEGORY_SEQUENCE = ['Portraits', 'Editorial', 'BTS', 'Traditional', 'Brand Shoots', 'Social'] as const;
+
+type GalleryCategory = (typeof CATEGORIES)[number];
 
 interface GalleryItem {
   id: number;
@@ -14,14 +18,16 @@ interface GalleryItem {
   alt: string;
   span: 'col-span-1' | 'col-span-2';
   height: string;
+  category: Exclude<GalleryCategory, 'All'>;
 }
 
 const getGalleryImage = (index: number) =>
-  `/portfolio-gallery/aisha-${String(index + 1).padStart(3, '0')}.webp`;
+  `/portfolio-gallery/aisha-${String(index + 1).padStart(3, '0')}.${index < 72 ? 'webp' : 'jpg'}`;
 
 export default function Gallery() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
+  const [activeCategory, setActiveCategory] = useState<GalleryCategory>('All');
 
   const galleryItems: GalleryItem[] = useMemo(
     () =>
@@ -29,6 +35,7 @@ export default function Gallery() {
         id: index + 1,
         src: getGalleryImage(index),
         alt: `Aisha Afridi portfolio visual ${index + 1}`,
+        category: CATEGORY_SEQUENCE[index % CATEGORY_SEQUENCE.length],
         span: index % 11 === 0 ? 'col-span-2' : 'col-span-1',
         height:
           index % 11 === 0
@@ -40,36 +47,66 @@ export default function Gallery() {
     []
   );
 
-  const visibleItems = galleryItems.slice(0, visibleCount);
-  const selectedItem = selectedIndex === null ? null : galleryItems[selectedIndex];
-  const canLoadMore = visibleCount < galleryItems.length;
+  const filteredItems = useMemo(
+    () =>
+      activeCategory === 'All'
+        ? galleryItems
+        : galleryItems.filter((item) => item.category === activeCategory),
+    [activeCategory, galleryItems]
+  );
+
+  const visibleItems = filteredItems.slice(0, visibleCount);
+  const selectedItem = selectedIndex === null ? null : filteredItems[selectedIndex];
+  const canLoadMore = visibleCount < filteredItems.length;
 
   const showPrevious = () => {
     setSelectedIndex((current) =>
-      current === null ? current : (current - 1 + galleryItems.length) % galleryItems.length
+      current === null ? current : (current - 1 + filteredItems.length) % filteredItems.length
     );
   };
 
   const showNext = () => {
     setSelectedIndex((current) =>
-      current === null ? current : (current + 1) % galleryItems.length
+      current === null ? current : (current + 1) % filteredItems.length
     );
   };
 
   return (
-    <section id="gallery" className="py-20 md:py-36 bg-[#10100e] text-white">
+    <section id="gallery" className="bg-[#10100e] py-16 text-white md:py-36">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="mb-14 md:mb-20">
-          <span className="inline-block text-sm font-sans tracking-widest uppercase text-primary mb-4">02</span>
-          <h2 className="font-serif text-5xl md:text-7xl lg:text-8xl text-white mb-6">
-            Gallery
+        <div className="mb-10 md:mb-20">
+          <span className="mb-3 inline-block font-sans text-xs uppercase tracking-widest text-primary md:mb-4 md:text-sm">02</span>
+          <h2 className="mb-4 font-serif text-4xl text-white md:mb-6 md:text-7xl lg:text-8xl">
+            Curated Gallery
           </h2>
-          <p className="font-sans text-xl text-white/75 max-w-2xl">
-            A curated visual selection from the latest provided images for portfolio review.
+          <p className="max-w-2xl font-sans text-base leading-relaxed text-white/75 md:text-xl">
+            A premium visual selection from Aisha Afridi&apos;s latest approved portfolio images.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+        <div className="mb-8 flex flex-wrap gap-2.5 md:mb-10 md:gap-3">
+          {CATEGORIES.map((category) => (
+            <button
+              key={category}
+              type="button"
+              onClick={() => {
+                setActiveCategory(category);
+                setVisibleCount(INITIAL_VISIBLE_COUNT);
+                setSelectedIndex(null);
+              }}
+              className={`rounded-full border px-4 py-2 font-sans text-xs font-semibold transition-all md:px-5 md:py-2.5 md:text-sm ${
+                activeCategory === category
+                  ? 'border-primary bg-primary text-primary-foreground'
+                  : 'border-white/20 bg-white/5 text-white/78 hover:border-primary hover:text-white'
+              }`}
+              aria-pressed={activeCategory === category}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-6">
           {visibleItems.map((item, index) => (
             <button
               type="button"
@@ -97,7 +134,8 @@ export default function Gallery() {
 
         <div className="mt-12 flex flex-col items-center gap-5">
           <p className="font-sans text-sm text-white/60">
-            Showing {visibleItems.length} of {galleryItems.length} visuals
+            Showing {visibleItems.length} of {filteredItems.length} visuals
+            {activeCategory !== 'All' ? ` in ${activeCategory}` : ''}
           </p>
           {canLoadMore && (
             <button
@@ -163,7 +201,7 @@ export default function Gallery() {
                 <ChevronRight size={24} />
               </button>
               <div className="absolute bottom-5 left-1/2 -translate-x-1/2 rounded-full bg-black/45 px-4 py-2 font-sans text-sm text-white/85 backdrop-blur">
-                {selectedItem.id} / {galleryItems.length}
+                {selectedIndex !== null ? selectedIndex + 1 : 1} / {filteredItems.length}
               </div>
             </div>
           </div>

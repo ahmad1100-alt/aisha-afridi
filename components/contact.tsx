@@ -10,6 +10,7 @@ export default function Contact() {
     email: '',
     phone: '',
     inquiryType: 'Acting / Casting',
+    company: '',
     subject: '',
     message: '',
   });
@@ -46,10 +47,11 @@ export default function Contact() {
         email: '',
         phone: '',
         inquiryType: 'Acting / Casting',
+        company: '',
         subject: '',
         message: '',
       });
-      setStatus('Thank you. Your inquiry has been sent for review.');
+      setStatus('Thank you. Your inquiry has been sent successfully.');
     } catch {
       setStatus('The inquiry could not be sent right now. Please use Instagram for urgent inquiries.');
     } finally {
@@ -194,26 +196,40 @@ export default function Contact() {
                     className="w-full px-5 py-4 bg-card border border-primary/15 text-foreground focus:outline-none focus:border-primary transition-all rounded-lg font-sans text-base"
                   >
                     <option>Acting / Casting</option>
-                    <option>Brand Campaign</option>
-                    <option>Media / Press</option>
-                    <option>Media Collaboration</option>
-                    <option>General Inquiry</option>
+                    <option>Brand Collaboration</option>
+                    <option>Media / Interview</option>
+                    <option>Event Appearance</option>
+                    <option>Other</option>
                   </select>
                 </div>
                 <div>
-                  <label htmlFor="subject" className="block font-sans text-sm text-foreground font-semibold mb-3">
-                    Subject
+                  <label htmlFor="company" className="block font-sans text-sm text-foreground font-semibold mb-3">
+                    Company / Production House
                   </label>
                   <input
-                    id="subject"
+                    id="company"
                     type="text"
-                    name="subject"
-                    value={formData.subject}
+                    name="company"
+                    value={formData.company}
                     onChange={handleChange}
                     className="w-full px-5 py-4 bg-card border border-primary/15 text-foreground placeholder-foreground/40 focus:outline-none focus:border-primary transition-all rounded-lg font-sans text-base"
-                    placeholder="Project or campaign name"
+                    placeholder="Company, agency, or production house"
                   />
                 </div>
+              </div>
+              <div>
+                <label htmlFor="subject" className="block font-sans text-sm text-foreground font-semibold mb-3">
+                  Subject
+                </label>
+                <input
+                  id="subject"
+                  type="text"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="w-full px-5 py-4 bg-card border border-primary/15 text-foreground placeholder-foreground/40 focus:outline-none focus:border-primary transition-all rounded-lg font-sans text-base"
+                  placeholder="Project or campaign name"
+                />
               </div>
               <div>
                 <label htmlFor="message" className="block font-sans text-sm text-foreground font-semibold mb-3">

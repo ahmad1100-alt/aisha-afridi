@@ -1,68 +1,92 @@
 'use client';
 
-import Image from 'next/image';
-import { Instagram, Play, Youtube } from 'lucide-react';
-import { instagramUrl, youtubeUrl } from '@/lib/aisha-profile';
+import { useState } from 'react';
+import { Instagram, Youtube } from 'lucide-react';
+import { instagramUrl, reelItems, youtubeUrl } from '@/lib/aisha-profile';
 
 export default function Showreel() {
+  const [visibleCount, setVisibleCount] = useState(3);
+  const visibleReels = reelItems.slice(0, visibleCount);
+  const canShowMore = visibleCount < reelItems.length;
+
   return (
-    <section id="showreel" className="bg-[#ece8df] py-20 md:py-32">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-10 px-4 md:grid-cols-5 md:px-8">
-        <div className="md:col-span-2">
-          <span className="mb-4 inline-block text-sm font-sans uppercase tracking-widest text-primary">
-            Showreel & Social Presence
-          </span>
-          <h2 className="mb-6 font-serif text-5xl text-foreground md:text-6xl">
-            Screen Updates, BTS, and Lifestyle Content
-          </h2>
-          <p className="mb-8 font-sans text-lg leading-relaxed text-muted">
-            Alongside television work, Aisha shares behind-the-scenes and lifestyle content through her official YouTube channel and Instagram presence.
-          </p>
-          <div className="flex flex-col gap-4 sm:flex-row">
-            <a
-              href={youtubeUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="btn-gold inline-flex items-center justify-center gap-2"
-            >
-              <Youtube size={20} />
-              YouTube
-            </a>
+    <section id="showreel" className="bg-background py-16 md:py-28">
+      <div className="mx-auto max-w-7xl px-4 md:px-8">
+        <div className="mb-10 flex flex-col gap-6 md:mb-12 md:flex-row md:items-end md:justify-between">
+          <div className="max-w-3xl">
+            <span className="mb-3 inline-block font-sans text-xs uppercase tracking-widest text-primary md:mb-4 md:text-sm">
+              Reels
+            </span>
+            <h2 className="mb-4 font-serif text-4xl text-foreground md:text-6xl">
+              Moving Portraits
+            </h2>
+            <p className="font-sans text-base leading-relaxed text-muted md:text-lg">
+              Selected reels from Aisha Afridi&apos;s recent approved content, bringing together on-camera presence, styling, and short-form storytelling.
+            </p>
+          </div>
+
+          <div className="flex flex-col gap-3 sm:flex-row">
             <a
               href={instagramUrl}
               target="_blank"
               rel="noreferrer"
+              className="btn-gold inline-flex items-center justify-center gap-2"
+            >
+              <Instagram size={18} />
+              Instagram
+            </a>
+            <a
+              href={youtubeUrl}
+              target="_blank"
+              rel="noreferrer"
               className="btn-outline inline-flex items-center justify-center gap-2"
             >
-              <Instagram size={20} />
-              Instagram
+              <Youtube size={18} />
+              YouTube
             </a>
           </div>
         </div>
 
-        <a
-          href={youtubeUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="group relative min-h-[440px] overflow-hidden rounded-lg md:col-span-3 md:min-h-[560px]"
-          aria-label="Open Aisha Afridi official YouTube channel"
-        >
-          <Image
-            src="/aisha-gallery-5.jpg"
-            alt="Aisha Afridi screen and digital content"
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
-            quality={92}
-            sizes="(min-width: 768px) 60vw, 100vw"
-          />
-          <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-          <span className="absolute bottom-6 left-6 flex items-center gap-4 text-white">
-            <span className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg">
-              <Play className="ml-1 h-6 w-6" fill="currentColor" />
-            </span>
-            <span className="font-sans text-lg font-semibold">View Official YouTube</span>
-          </span>
-        </a>
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
+          {visibleReels.map((reel, index) => (
+            <article
+              key={reel.video}
+              className="overflow-hidden rounded-lg border border-border bg-card shadow-[0_14px_36px_rgba(21,21,21,0.06)]"
+            >
+              <div className="relative bg-black">
+                <video
+                  className="aspect-[9/16] h-full w-full object-cover"
+                  controls
+                  preload="metadata"
+                  playsInline
+                >
+                  <source src={reel.video} type="video/mp4" />
+                </video>
+                {/* <div className="pointer-events-none absolute left-3 top-3 rounded-full bg-black/60 px-2.5 py-1 font-sans text-[10px] font-semibold uppercase tracking-[0.14em] text-white">
+                  Reel {String(index + 1).padStart(2, '0')}
+                </div> */}
+              </div>
+              {/* <div className="p-4 md:p-5">
+                <h3 className="mb-2 font-serif text-2xl text-foreground">{reel.title}</h3>
+                <p className="font-sans text-sm leading-relaxed text-muted">
+                  {reel.description}
+                </p>
+              </div> */}
+            </article>
+          ))}
+        </div>
+
+        {canShowMore && (
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => setVisibleCount(reelItems.length)}
+              className="btn-outline inline-flex items-center justify-center"
+            >
+              Show More
+            </button>
+          </div>
+        )}
       </div>
     </section>
   );

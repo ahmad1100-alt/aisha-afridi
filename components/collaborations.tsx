@@ -43,8 +43,8 @@ export default function Collaborations() {
     },
     {
       id: 6,
-      title: 'Digital Collaborations',
-      description: 'YouTube, Instagram, TikTok, and social media partnerships',
+      title: 'Event & Media Appearances',
+      description: 'Event appearances, media interviews, and public-facing campaign moments',
       icon: <Radio className="w-8 h-8" />,
     },
   ];
@@ -86,7 +86,7 @@ export default function Collaborations() {
             Interested in a collaboration? Send the project context and requested dates.
           </p>
           <a href="#contact" className="btn-gold">
-            Get in Touch
+            Send Collaboration Inquiry
           </a>
         </div>
       </div>

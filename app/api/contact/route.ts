@@ -5,6 +5,7 @@ interface ContactPayload {
   email?: string;
   phone?: string;
   inquiryType?: string;
+  company?: string;
   subject?: string;
   message?: string;
 }
@@ -38,6 +39,7 @@ export async function POST(request: Request) {
     `Email: ${payload.email}`,
     `Phone / WhatsApp: ${payload.phone || 'Not provided'}`,
     `Inquiry Type: ${payload.inquiryType || 'Not provided'}`,
+    `Company / Production House: ${payload.company || 'Not provided'}`,
     '',
     payload.message,
   ].join('\n');

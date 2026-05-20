@@ -14,7 +14,7 @@ export default function PressKit() {
     {
       id: 1,
       title: 'Professional Bio',
-      description: 'Short and long biography copy for media, casting, and brand review',
+      description: 'Short and long biography copy for media, casting, and brand use',
       icon: <FileText className="w-8 h-8" />,
     },
     {
@@ -63,11 +63,11 @@ export default function PressKit() {
               </p>
               <a
                 href="#contact"
-                aria-label={`${kit.title} available on request`}
+                aria-label={`Request ${kit.title}`}
                 className="w-full btn-gold text-base font-semibold py-4 flex items-center justify-center gap-2"
               >
                 <Download size={20} />
-                Available on Request
+                Request Press Kit
               </a>
             </div>
           ))}

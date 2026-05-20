@@ -13,7 +13,7 @@ export default function SelectedWork() {
             Selected Screen Work
           </h2>
           <p className="max-w-3xl font-sans text-lg leading-relaxed text-muted md:text-xl">
-            A curated overview of Aisha&apos;s publicly listed television work and screen presence.
+            Confirmed and publicly listed screen work from Aisha Afridi&apos;s television portfolio.
           </p>
         </div>
 
@@ -23,12 +23,12 @@ export default function SelectedWork() {
               key={work.title}
               className="group overflow-hidden rounded-lg border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/60 hover:shadow-xl"
             >
-              <div className="relative h-[360px] overflow-hidden md:h-[460px]">
+              <div className="relative h-[360px] overflow-hidden bg-[#15120f] md:h-[460px]">
                 <Image
                   src={work.image}
                   alt={work.title}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="object-contain transition-transform duration-500 group-hover:scale-105"
                   quality={92}
                   sizes="(min-width: 768px) 50vw, 100vw"
                 />
@@ -44,6 +44,26 @@ export default function SelectedWork() {
                 <h3 className="mb-5 font-serif text-4xl leading-tight text-foreground md:text-5xl">
                   {work.title}
                 </h3>
+                <dl className="mb-5 grid gap-3 border-y border-border py-5 font-sans text-sm text-muted sm:grid-cols-3">
+                  <div>
+                    <dt className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                      Platform
+                    </dt>
+                    <dd>{work.platform}</dd>
+                  </div>
+                  <div>
+                    <dt className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                      Role / Notes
+                    </dt>
+                    <dd>{work.role}</dd>
+                  </div>
+                  <div>
+                    <dt className="mb-1 text-xs font-semibold uppercase tracking-[0.16em] text-primary">
+                      Year
+                    </dt>
+                    <dd>{work.year}</dd>
+                  </div>
+                </dl>
                 <p className="font-sans text-base leading-relaxed text-foreground md:text-lg">
                   {work.description}
                 </p>
@@ -62,7 +82,7 @@ export default function SelectedWork() {
             </p>
           </div>
           <a href="#contact" className="btn-gold justify-self-start text-base font-semibold md:justify-self-end">
-            Request Full Portfolio
+            Send Booking Inquiry
           </a>
         </div>
       </div>

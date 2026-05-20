@@ -42,11 +42,6 @@ export default function Footer() {
                   Gallery
                 </a>
               </li>
-              <li>
-                <a href="#press" className="font-sans text-sm text-muted hover:text-primary transition-colors">
-                  Press Kit
-                </a>
-              </li>
             </ul>
           </div>
 

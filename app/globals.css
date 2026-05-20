@@ -136,12 +136,6 @@
     position: relative;
   }
 
-  @media (max-width: 767px) {
-    body {
-      padding-bottom: 5rem;
-    }
-  }
-
   body::before {
     content: "";
     position: fixed;

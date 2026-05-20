@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
@@ -10,7 +9,7 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '#about', label: 'About' },
-    { href: '#showreel', label: 'Showreel' },
+    { href: '#showreel', label: 'Videos' },
     { href: '#work', label: 'Work' },
     { href: '#gallery', label: 'Gallery' },
     { href: '#contact', label: 'Contact' },
@@ -86,7 +85,7 @@ export default function Navbar() {
           </div>
         )}
       </div>
-      {/* Fixed mobile booking button removed - hamburger contains the CTA now */}
+
     </nav>
   );
 }
